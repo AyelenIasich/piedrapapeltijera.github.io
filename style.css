@@ -6,6 +6,7 @@ body {
     rgba(58, 168, 203, 1) 100%
   );
   font-family: "Saira", sans-serif;
+  height: 100vh;
 }
 * {
   color: #fff;
