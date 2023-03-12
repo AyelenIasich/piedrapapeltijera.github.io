@@ -5,37 +5,106 @@ body {
     rgba(151, 61, 215, 1) 0%,
     rgba(58, 168, 203, 1) 100%
   );
-  font-family: "Poppins", sans-serif;
+  font-family: "Saira", sans-serif;
 }
 * {
   color: #fff;
 }
 
+h1 {
+  font-weight: 700 !important;
+}
+.row {
+  height: 100%;
+}
+
 .tarjeta {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5) !important;
   border-radius: 10px;
   width: 100%;
-  
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.player-card {
+  transform: rotate(-6deg);
+  position: relative;
+  z-index: 2;
+}
+.player-card::before {
+  content: "";
+  inset: 0;
+  z-index: -1;
+  transform: rotate(-5deg);
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.pc-card {
+  transform: rotate(6deg);
+  position: relative;
+  z-index: 3;
+}
+
+.pc-card::before {
+  content: "";
+  inset: 0;
+  z-index: -1;
+  transform: rotate(5deg);
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tarjeta img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .choiceBtn {
   border: none;
   background: none;
+  height: 100%;
+  object-fit: cover;
 }
 .choiceBtn img {
+  height: 100% !important;
+  width: 100% !important;
   object-fit: cover;
-  height: 100%;
-  width: 100%;
-  border: 7px solid #fff;
+  border: 5px solid #fff;
   border-radius: 100px;
-  transition-property: transform;
-  transition-duration: 0.4s;
+  transition: transform 500ms ease;
 }
 
 .choiceBtn img:hover {
   transform: scale(1.1);
 }
 
-.gameText{
-    background-color:grey;
+.gameText {
+  background: rgba(235, 234, 234, 0.9);
+  border: solid 2px #fff;
+  /* transform: translateY(-25px); */
+  bottom: -28px;
+  position: absolute;
+  /* transform: rotate(-6deg); */
+  
+  color: rgb(72, 74, 76);
+
+
+}
+
+.ResultText {
+  background: rgba(235, 234, 234, 0.9);
+  /* border: solid 2px  rgba(72, 74, 76, 0.9);    */
+  color: rgb(72, 74, 76);
+
+}
+
+.playerText,
+.computerText {
+  font-weight: light;
+}
+
+#computerPicked{
+  transform: scaleX(-1)
 }

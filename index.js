@@ -15,10 +15,14 @@ let result;
 
 choiceBtns.forEach((button) =>
   button.addEventListener("click", () => {
-    player = button.value; 
+    player = button.value;
     computerTurn();
-    playerText.textContent = `Jugador: ${player}`;
-    computerText.textContent = `Computer: ${computer}`;
+    playerText.textContent = `${player}`;
+    let playerChoosen = eleccionPlayer(player);
+    playerPicked.src = images[playerChoosen];
+    computerText.textContent = `${computer}`;
+    let computerChoosen = eleccionPlayer(computer);
+    computerPicked.src = images[computerChoosen];
     resultText.textContent = checkWinner();
   })
 );
@@ -41,68 +45,45 @@ function computerTurn() {
 function checkWinner() {
   if (player == computer) {
     return "Empate";
-  }else if(player == "piedra" && computer == "tijera"){
-    return "Ganaste" 
-  }else if(player == "papel" && computer == "piedra"){
-    return "Ganaste"
-  } else if(player == "tijera" && computer == "papel"){
-    return  "Ganaste"
-  }else{
-    return "Perdiste" 
+  } else if (player == "piedra" && computer == "tijera") {
+    resultText.style.backgroundColor = "#5dc460";
+    resultText.style.color = "#fff";
+    return "Ganaste";
+  } else if (player == "papel" && computer == "piedra") {
+    resultText.style.backgroundColor = "#5dc460";
+    resultText.style.color = "#fff";
+
+    return "Ganaste";
+  } else if (player == "tijera" && computer == "papel") {
+    resultText.style.backgroundColor = "#5dc460";
+    resultText.style.color = "#fff";
+    return "Ganaste";
+  } else {
+    resultText.style.backgroundColor = "#e2504c";
+        resultText.style.color = "#fff";
+    return "Perdiste";
   }
 }
 
+let images = ["assets/papelChoose.png", "assets/piedraChoose.png", "assets/tijeraChoose.png"];
 
-// if (pc == jugador) {
-//   alert("Empate");
-// } else if (jugador == 1 && pc == 3) {
-//   alert("Ganaste");
-// } else if (jugador == 2 && pc == 1) {
-//   alert("Ganaste");
-// } else if (jugador == 3 && pc == 1) {
-//   alert("Ganaste");
-// } else {
-//   alert("Perdiste");
-// }
+function eleccionPlayer(player) {
+  let resultado;
+  if (player == "piedra") {
+    resultado = 1;
+  } else if (player == "tijera") {
+    resultado = 2;
+  } else if (player == "papel") {
+    resultado = 0;
+  }
+  return resultado;
+}
 
-// jugador = prompt("Elige: 1 para piedra, 2 para papel, 3 para tijera");
+// function carouselImage() {
+//   let n = 3;
+//   for (i = 0; i < n; i++) {
+//     computerPicked.src = images[i];
+//     n = n + 1;
+//   }
 
-// switch (jugador) {
-//   case "1":
-//     alert("Elegiste piedra");
-//     break;
-//   case "2":
-//     alert("Elegiste papel");
-//     break;
-//   case "3":
-//     alert("Elegiste tijera");
-//     break;
-//   default:
-//     alert("Elegiste caca");
-// }
-
-// switch (pc) {
-//   case 1:
-//     alert(" Pc elige piedra");
-//     break;
-//   case 2:
-//     alert(" Pc elige  papel");
-//     break;
-//   case 3:
-//     alert(" Pc elige  tijera");
-//     break;
-//   default:
-//     alert(" Pc elige  caca");
-// }
-
-// if (pc == jugador) {
-//   alert("Empate");
-// } else if (jugador == 1 && pc == 3) {
-//   alert("Ganaste");
-// } else if (jugador == 2 && pc == 1) {
-//   alert("Ganaste");
-// } else if (jugador == 3 && pc == 1) {
-//   alert("Ganaste");
-// } else {
-//   alert("Perdiste");
 // }

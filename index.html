@@ -18,29 +18,39 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,900;1,300;1,700&display=swap"
       rel="stylesheet"
     />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,900;1,300;1,700&family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
-      <div class="row m-5">
-        <div class="col-12 text-center"><h1>Piedra, Papel o Tijera</h1></div>
+      <div class="row mt-5 mt-md-3 mb-3 mb-md-1 p-0">
+        <div class="col-12 text-center">
+          <h1 class="">PIEDRA, PAPEL O TIJERA</h1>
+        </div>
       </div>
-
       <!-- Buttons options Rock, paper, scissors -->
-      <section class="buttonSelected row">
-        <div class="col-4 text-center">
-          <button class="choiceBtn" value="papel" id="paper">
-            <img src="assets\Papel.png" alt="" />
-          </button>
-        </div>
-        <div class="col-4 text-center">
-          <button class="choiceBtn" value="piedra" id="rock">
-            <img src="assets\piedra.png" alt="" />
-          </button>
-        </div>
-        <div class="col-4 text-center">
-          <button class="choiceBtn" value="tijera" id="scissors">
-            <img src="assets\tijera.png" alt="" />
-          </button>
+      <section class="buttonSelected p-md-5 mb-3 mb-md-2">
+        <div class="row justify-content-center">
+          <div class="col-4 col-md-2 text-center">
+            <button class="choiceBtn" value="papel" id="paper">
+              <img src="assets\papel1.png" alt="" />
+            </button>
+          </div>
+          <div class="col-4 col-md-2 text-center">
+            <button class="choiceBtn" value="piedra" id="rock">
+              <img src="assets\piedra1.png" alt="" />
+            </button>
+          </div>
+          <div class="col-4 col-md-2 text-center">
+            <button class="choiceBtn" value="tijera" id="scissors">
+              <img src="assets\tijera1.png" alt="" />
+            </button>
+          </div>
         </div>
       </section>
 
@@ -48,36 +58,43 @@
       <!-- <h1 class="gameText" id="computerText">Computadora:</h1> -->
       <!-- <h1 class="gameText" id="resultText">Resultado:</h1> -->
 
-      <div class="row justify-content-center">
-        <div class="col-6 text-end">
-          <div class="card tarjeta text-center align-self-center">
-            <div class="card-body">
-              <img src="assets\pregunta.png" alt="" />
-
-              <h1 class="gameText" id="playerText">Jugador:</h1>
+      <div class="row justify-content-center mb-3">
+        <div class="col-6">
+          <div class="col-11 col-md-4 offset-md-7">
+            <div class="card tarjeta text-center player-card p-1">
+              <img src="assets\guessing.png" id="playerPicked" alt="" />
+              <h3
+                class="gameText col-10 pb-1 ms-2 ms-md-3 align-text-center text-center"
+                id="playerText"
+              >
+                Jugador
+              </h3>
             </div>
           </div>
         </div>
-        <div class="col-6 ">
-          <div class="card p-0 tarjeta text-center align-self-center">
-            <div class="card-body ">
-              <img src="assets\pregunta.png" alt="" />
-             
-                 <h1 class="gameText" id="computerText">Computadora:</h1>
-           
-             
+
+        <div class="col-6">
+          <div class="col-11 col-md-4 offset-md-1">
+            <div class="card tarjeta text-center pc-card p-1">
+              <img src="assets\guessing.png" alt="" id="computerPicked" />
+
+              <h3
+                class="gameText ms-2 ms-md-3 pb-1 align-text-center text-center col-10"
+                id="computerText"
+              >
+                Compu
+              </h3>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col justify-content-center">
-          <div class="">
-            <h1 class="gameText" id="resultText">Resultado:</h1>
+      <section class="result-section mt-5">
+        <div class="row justify-content-center ">
+          <div class="col-8 col-md-4 justify-content-center ">
+            <h1 class="ResultText text-center pb-2" id="resultText">Juguemos!</h1>
           </div>
         </div>
-      </div>
+      </section>
     </div>
 
     <script src="index.js"></script>
