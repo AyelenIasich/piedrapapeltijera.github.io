@@ -1,0 +1,41 @@
+body {
+  background: rgb(151, 61, 215);
+  background: linear-gradient(
+    292deg,
+    rgba(151, 61, 215, 1) 0%,
+    rgba(58, 168, 203, 1) 100%
+  );
+  font-family: "Poppins", sans-serif;
+}
+* {
+  color: #fff;
+}
+
+.tarjeta {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  width: 100%;
+  
+}
+
+.choiceBtn {
+  border: none;
+  background: none;
+}
+.choiceBtn img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border: 7px solid #fff;
+  border-radius: 100px;
+  transition-property: transform;
+  transition-duration: 0.4s;
+}
+
+.choiceBtn img:hover {
+  transform: scale(1.1);
+}
+
+.gameText{
+    background-color:grey;
+}
