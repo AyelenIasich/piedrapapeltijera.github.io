@@ -54,8 +54,9 @@ function checkWinner() {
 
     Swal.fire({
       title: 'GANASTE!!!',
-      width: '30%',
+      width: 600,
       timer: 5000,
+position:'bottom',
       padding: '1em',
       color: '#716add',
       // imageUrl: 'assets/cat-nyan-cat.gif',
