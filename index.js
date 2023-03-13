@@ -23,7 +23,9 @@ choiceBtns.forEach((button) =>
     computerText.textContent = `${computer}`;
     let computerChoosen = eleccionPlayer(computer);
     computerPicked.src = images[computerChoosen];
-    resultText.textContent = checkWinner();
+    // resultText.textContent = checkWinner();
+    checkWinner()
+
   })
 );
 
@@ -46,9 +48,25 @@ function checkWinner() {
   if (player == computer) {
     return "Empate";
   } else if (player == "piedra" && computer == "tijera") {
-    resultText.style.backgroundColor = "#5dc460";
-    resultText.style.color = "#fff";
-    return "Ganaste";
+    // resultText.style.backgroundColor = "#5dc460";
+    // resultText.style.color = "#fff";
+    // return "Ganaste";
+
+    Swal.fire({
+      title: 'GANASTE!!!',
+      width: '30%',
+      timer: 5000,
+      padding: '1em',
+      color: '#716add',
+      // imageUrl: 'assets/cat-nyan-cat.gif',
+      // background: '#fff url(/images/trees.png)',
+      backdrop: `
+        rgba(0,0,123,0.4)
+        url("assets/cat-nyan-cat.gif")
+        left top
+        no-repeat
+      `
+    })
   } else if (player == "papel" && computer == "piedra") {
     resultText.style.backgroundColor = "#5dc460";
     resultText.style.color = "#fff";
@@ -79,11 +97,4 @@ function eleccionPlayer(player) {
   return resultado;
 }
 
-// function carouselImage() {
-//   let n = 3;
-//   for (i = 0; i < n; i++) {
-//     computerPicked.src = images[i];
-//     n = n + 1;
-//   }
 
-// }
