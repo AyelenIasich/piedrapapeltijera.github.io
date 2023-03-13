@@ -49,12 +49,11 @@ function checkWinner() {
     alertTie()
     return "Empate";
   } else if (player == "piedra" && computer == "tijera") {
-    resultText.style.backgroundColor = "#5dc460";
+     resultText.style.backgroundColor = "#5dc460";
     resultText.style.color = "#fff";
     alertWinner()
-    return "Ganaste";
+   return "Ganaste";
 
-   
   } else if (player == "papel" && computer == "piedra") {
     resultText.style.backgroundColor = "#5dc460";
     resultText.style.color = "#fff";
