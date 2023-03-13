@@ -93,7 +93,7 @@ function alertWinner(){
     title: 'GANASTE!!!',
     text: 'Nadie puede contra vos',
     width: 600,
-  
+  position: 'botton',
     timer: 5000,
     padding: '1em',
     confirmButtonText: 'Continuar',
