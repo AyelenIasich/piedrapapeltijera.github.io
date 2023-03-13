@@ -23,7 +23,7 @@ choiceBtns.forEach((button) =>
     computerText.textContent = `${computer}`;
     let computerChoosen = eleccionPlayer(computer);
     computerPicked.src = images[computerChoosen];
-    // resultText.textContent = checkWinner();
+    resultText.textContent = checkWinner();
     checkWinner()
 
   })
@@ -46,39 +46,30 @@ function computerTurn() {
 
 function checkWinner() {
   if (player == computer) {
+    alertTie()
     return "Empate";
   } else if (player == "piedra" && computer == "tijera") {
-    // resultText.style.backgroundColor = "#5dc460";
-    // resultText.style.color = "#fff";
-    // return "Ganaste";
+    resultText.style.backgroundColor = "#5dc460";
+    resultText.style.color = "#fff";
+    alertWinner()
+    return "Ganaste";
 
-    Swal.fire({
-      title: 'GANASTE!!!',
-      width: '30%',
-      timer: 5000,
-      padding: '1em',
-      color: '#716add',
-      // imageUrl: 'assets/cat-nyan-cat.gif',
-      // background: '#fff url(/images/trees.png)',
-      backdrop: `
-        rgba(0,0,123,0.4)
-        url("assets/cat-nyan-cat.gif")
-        left top
-        no-repeat
-      `
-    })
+   
   } else if (player == "papel" && computer == "piedra") {
     resultText.style.backgroundColor = "#5dc460";
     resultText.style.color = "#fff";
+    alertWinner()
 
     return "Ganaste";
   } else if (player == "tijera" && computer == "papel") {
     resultText.style.backgroundColor = "#5dc460";
     resultText.style.color = "#fff";
+    alertWinner()
     return "Ganaste";
   } else {
     resultText.style.backgroundColor = "#e2504c";
         resultText.style.color = "#fff";
+        alertLoser()
     return "Perdiste";
   }
 }
@@ -98,3 +89,47 @@ function eleccionPlayer(player) {
 }
 
 
+function alertWinner(){
+  Swal.fire({
+    title: 'GANASTE!!!',
+    text: 'Nadie puede contra vos',
+    width: '30%',
+    timer: 5000,
+    padding: '1em',
+    confirmButtonText: 'Continuar',
+    color: '#716add',
+    backdrop: `
+      rgba(0,0,123,0.4)
+      url("assets/cat-nyan-cat.gif")
+      left top
+      no-repeat
+    `
+  })
+}
+
+function alertLoser(){
+  Swal.fire({
+    title: 'PERDISTE!!!',
+    text: 'No eres rival para mi!!!',
+    width: '30%',
+    timer: 5000,
+    padding: '1em',
+    confirmButtonText: 'Continuar',
+    color: '#716add',
+    imageUrl: 'assets/loser.png',
+   
+  })
+}
+function alertTie(){
+  Swal.fire({
+    title: 'EMPATE',
+    text: 'Se que puedes hacerlo mejor',
+    width: '30%',
+    timer: 5000,
+    padding: '1em',
+    confirmButtonText: 'Continuar',
+    color: '#716add',
+    imageUrl: 'assets/tie.png',
+   
+  })
+}
