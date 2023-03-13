@@ -6,7 +6,7 @@ body {
     rgba(58, 168, 203, 1) 100%
   );
   font-family: "Saira", sans-serif;
-  height: 100vh;
+  min-height: 100vh;
 }
 * {
   color: #fff;
@@ -95,8 +95,7 @@ h1 {
 }
 
 .ResultText {
-  background: rgba(235, 234, 234, 0.9);
-  /* border: solid 2px  rgba(72, 74, 76, 0.9);    */
+  background: rgba(235, 234, 234, 0.9);  
   color: rgb(72, 74, 76);
 
 }
@@ -108,4 +107,11 @@ h1 {
 
 #computerPicked{
   transform: scaleX(-1)
+}
+
+.resultTable{
+  background: hsl(0 0% 100% / 0.1) !important;
+  backdrop-filter: blur(1rem);
+  border-bottom: 5px solid rgb(143, 72, 214);
+  border-radius: 6px;
 }

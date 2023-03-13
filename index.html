@@ -12,11 +12,11 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Icons -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,900;1,300;1,700&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,31 +39,28 @@
       <!-- Buttons options Rock, paper, scissors -->
       <section class="buttonSelected p-md-5 mb-1 mb-md-2">
         <div class="row justify-content-center">
-          <div class="col-4 col-md-2 text-center">
+          <div class="col-4 col-md-3 col-lg-2 text-center">
             <button class="choiceBtn" value="papel" id="paper">
               <img src="assets\papel1.png" alt="" />
             </button>
           </div>
-          <div class="col-4 col-md-2 text-center">
+          <div class="col-4 col-md-3 col-lg-2 text-center">
             <button class="choiceBtn" value="piedra" id="rock">
               <img src="assets\piedra1.png" alt="" />
             </button>
           </div>
-          <div class="col-4 col-md-2 text-center">
+          <div class="col-4 col-md-3 col-lg-2 text-center">
             <button class="choiceBtn" value="tijera" id="scissors">
               <img src="assets\tijera1.png" alt="" />
             </button>
           </div>
         </div>
       </section>
+      <!-- Cards  -->
 
-      <!-- <h1 class="gameText" id="playerText">Jugador:</h1> -->
-      <!-- <h1 class="gameText" id="computerText">Computadora:</h1> -->
-      <!-- <h1 class="gameText" id="resultText">Resultado:</h1> -->
-
-      <div class="row justify-content-center mb-md-3 mt-3 mt-md-0 mb-2 ">
-        <div class="col-6  mt-2 mb-3 mb-md-0">
-          <div class="col-11 col-md-4 offset-md-7">
+      <div class="row justify-content-center mb-md-3 mt-3 mt-md-0 mb-2">
+        <div class="col-6 mt-2 mb-3 mb-md-0">
+          <div class="col-11 col-md-6 col-lg-4 offset-md-7">
             <div class="card tarjeta text-center player-card p-1">
               <img src="assets\guessing.png" id="playerPicked" alt="" />
               <h3
@@ -76,8 +73,8 @@
           </div>
         </div>
 
-        <div class="col-6  mt-2 mb-3 mb-md-0">
-          <div class="col-11 col-md-4 offset-md-1">
+        <div class="col-6 mt-2 mb-3 mb-md-0">
+          <div class="col-11 col-md-6 col-lg-4 offset-md-1">
             <div class="card tarjeta text-center pc-card p-1">
               <img src="assets\guessing-compu.png" alt="" id="computerPicked" />
 
@@ -91,10 +88,27 @@
           </div>
         </div>
       </div>
-      <section class="result-section mt-1  mt-5 mb-4 mb-md-0">
-        <div class="row justify-content-center ">
-          <div class="col-8 col-md-4 justify-content-center ">
-            <h1 class="ResultText text-center pb-2 pt-2" id="resultText">Juguemos!</h1>
+
+      <section class="result-section mt-1 mt-5 mb-5 mb-md-0 d-md-block ">
+        <div class="row justify-content-center">
+          <div class="col-12 justify-content-center">
+            <div class="row justify-content-center">
+              <div class="col-5 resultTable me-1 text-center">
+                <i class="fa-solid fa-user display-6 pt-3"></i>
+                <p class="display-5 pt-3" id="counterPlayer">0</p>
+                <p>Victorias</p>
+              </div>
+
+              <div class="col-5 resultTable ms-1 text-center pt-3">
+                <i class="fa-solid fa-computer display-6"></i>
+                <p class="display-5 pt-3" id="computerVictories">0</p>
+                <p>Victorias</p>
+              </div>
+            </div>
+
+            <!-- <h1 class="ResultText text-center pb-2 pt-2" id="resultText">
+              Juguemos!
+            </h1> -->
           </div>
         </div>
       </section>
@@ -107,11 +121,9 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
-<!-- SWEEAT ALERTS -->
+    <!-- SWEEAT ALERTS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- Alertas -->
-<script src="alertas.js"></script>
-
-
+    <!-- Alertas -->
+    <script src="alertas.js"></script>
   </body>
 </html>

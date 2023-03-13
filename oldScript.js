@@ -1,3 +1,18 @@
+choiceBtns.forEach((button) =>
+  button.addEventListener("click", () => {
+    player = button.value;
+    computerTurn();
+    playerText.textContent = `${player}`;
+    let playerChoosen = eleccionPlayer(player);
+    playerPicked.src = images[playerChoosen];
+    computerText.textContent = `${computer}`;
+    let computerChoosen = eleccionPlayer(computer);
+    computerPicked.src = images[computerChoosen];
+    // resultText.textContent = checkWinner();
+    checkWinner();
+  })
+);
+
 function checkWinner() {
     if (player == computer) {
       return "Empate";
