@@ -156,15 +156,15 @@ function increaseWinnerComputer() {
 function winnerChampion() {
   Swal.fire({
     title: "CRACK",
-    text: "Ganaste 3 de 5",
+    text: "Felicitaciones ganaste 3 de 5",
     width: 500,
     position: "bottom",
-    timer: 5000,
+    // timer: 5000,
     padding: "1em",
     confirmButtonText: "Continuar",
     color: "#716add",
     backdrop: `
-      rgba(0,0,123,0.4)
+    rgba(0,0,123,0.6)
       url("assets/Winner.png")
       center
       no-repeat
@@ -175,15 +175,15 @@ function winnerChampion() {
 function bigLoser() {
   Swal.fire({
     title: "LOSER",
-    text: "Perdiste 3 de 5",
+    text: "Perdiste 3 de 5.",
     width: 500,
     position: "bottom",
-    timer: 5000,
+    // timer: 5000,
     padding: "1em",
     confirmButtonText: "Continuar",
     color: "#716add",
     backdrop: `
-      rgba(0,0,123,0.4)
+    rgba(0,0,123,0.6)
       url("assets/computerWIN.png")
       center
       no-repeat
