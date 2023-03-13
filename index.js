@@ -92,7 +92,8 @@ function alertWinner(){
   Swal.fire({
     title: 'GANASTE!!!',
     text: 'Nadie puede contra vos',
-    width: '30%',
+    width: 600,
+  
     timer: 5000,
     padding: '1em',
     confirmButtonText: 'Continuar',
@@ -110,7 +111,7 @@ function alertLoser(){
   Swal.fire({
     title: 'PERDISTE!!!',
     text: 'No eres rival para mi!!!',
-    width: '30%',
+    width: 600,
     timer: 5000,
     padding: '1em',
     confirmButtonText: 'Continuar',
@@ -123,7 +124,7 @@ function alertTie(){
   Swal.fire({
     title: 'EMPATE',
     text: 'Se que puedes hacerlo mejor',
-    width: '30%',
+    width: 600,
     timer: 5000,
     padding: '1em',
     confirmButtonText: 'Continuar',
