@@ -25,8 +25,34 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,900;1,300;1,700&family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+      <!-- SWEEAT ALERTS -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <!-- Alertas -->
+      <script src="alertas.js"></script>
   </head>
   <body>
+    <script>
+      
+
+  Swal.fire({
+    title: "Bienvenido",
+    text: "Mi nombre es Meshi y hoy seré tu rival. Intenta ganarme 3 de 5 rondas.",
+    width: 500,
+    position: "bottom",
+    // timer: 5000,
+    padding: "1em",
+    confirmButtonText: "Juguemos",
+    color: "#716add",
+    backdrop: `
+      rgba(0,0,123,0.4)
+      url("assets/loser.png")
+      center
+      no-repeat
+    `,
+  });
+
+    </script>
+   
     <div class="container">
       <div class="row mt-5 mt-md-3 mb-5 mb-md-1 p-0">
         <div class="col-12 text-center">
@@ -82,7 +108,7 @@
                 class="gameText ms-2 ms-md-3 pb-1 align-text-center text-center col-10"
                 id="computerText"
               >
-                Compu
+                Meshi
               </h3>
             </div>
           </div>
@@ -121,9 +147,6 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
-    <!-- SWEEAT ALERTS -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Alertas -->
-    <script src="alertas.js"></script>
+  
   </body>
 </html>

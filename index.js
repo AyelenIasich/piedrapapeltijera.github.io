@@ -8,19 +8,18 @@ const playerText = document.querySelector("#playerText");
 const computerText = document.querySelector("#computerText");
 const resultText = document.querySelector("#resultText");
 const choiceBtns = document.querySelectorAll(".choiceBtn");
-const counterPlayer  = document.querySelector('#counterPlayer');
-const computerVictories  = document.querySelector('#computerVictories');
-
+const counterPlayer = document.querySelector("#counterPlayer");
+const computerVictories = document.querySelector("#computerVictories");
 
 let player;
 let computer;
 let result;
-let countPlayer = 0; 
+let countPlayer = 0;
 let computerVictory = 0;
-
 
 choiceBtns.forEach((button) =>
   button.addEventListener("click", () => {
+    restartGame();
     player = button.value;
     computerTurn();
     playerText.textContent = `${player}`;
@@ -55,32 +54,18 @@ function computerTurn() {
 function checkWinner() {
   if (player == computer) {
     alertTie();
-    // return "Empate";
   } else if (player == "piedra" && computer == "tijera") {
-    // resultText.style.backgroundColor = "#5dc460";
-    // resultText.style.color = "#fff";
     alertWinner();
-    increaseWinnerPlayer()
-    // return "Ganaste";
+    increaseWinnerPlayer();
   } else if (player == "papel" && computer == "piedra") {
-    // resultText.style.backgroundColor = "#5dc460";
-    // resultText.style.color = "#fff";
     alertWinner();
-    increaseWinnerPlayer()
-    // return "Ganaste";
+    increaseWinnerPlayer();
   } else if (player == "tijera" && computer == "papel") {
-    // resultText.style.backgroundColor = "#5dc460";
-    // resultText.style.color = "#fff";
     alertWinner();
-   increaseWinnerPlayer()
-   
-    // return "Ganaste";
+    increaseWinnerPlayer();
   } else {
-    // resultText.style.backgroundColor = "#e2504c";
-    // resultText.style.color = "#fff";
     alertLoser();
-    increaseWinnerComputer()
-    // return "Perdiste";
+    increaseWinnerComputer();
   }
 }
 
@@ -158,29 +143,20 @@ function alertTie() {
   });
 }
 
-function increaseWinnerPlayer(){
-  countPlayer ++;
+function increaseWinnerPlayer() {
+  countPlayer++;
   counterPlayer.textContent = countPlayer;
 }
 
-
-function increaseWinnerComputer(){
-  computerVictory ++;
+function increaseWinnerComputer() {
+  computerVictory++;
   computerVictories.textContent = computerVictory;
-}
-
-function bestOfFive(){
-  if(countPlayer == 3){
-    winnerChampion();
-  } else if (computerVictory == 3 ){
-    bigLoser();
-  }
 }
 
 function winnerChampion() {
   Swal.fire({
     title: "CRACK",
-    text: "Mejor de 3 de 5",
+    text: "Ganaste 3 de 5",
     width: 500,
     position: "bottom",
     timer: 5000,
@@ -196,10 +172,10 @@ function winnerChampion() {
   });
 }
 
-function bigLoser(){
+function bigLoser() {
   Swal.fire({
-    title: "PERDISTE NUESTRA BATALLA",
-    text: "Soy mejor que vos",
+    title: "LOSER",
+    text: "Perdiste 3 de 5",
     width: 500,
     position: "bottom",
     timer: 5000,
@@ -213,4 +189,21 @@ function bigLoser(){
       no-repeat
     `,
   });
+}
+
+function restartGame() {
+  if (countPlayer == 3 || computerVictory == 3) {
+    countPlayer = 0;
+    computerVictory = 0;
+    counterPlayer.textContent = countPlayer;
+    computerVictories.textContent = computerVictory;
+  }
+}
+
+function bestOfFive() {
+  if (countPlayer == 3) {
+    winnerChampion();
+  } else if (computerVictory == 3) {
+    bigLoser();
+  }
 }
