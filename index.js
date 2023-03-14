@@ -19,7 +19,6 @@ let computerVictory = 0;
 
 choiceBtns.forEach((button) =>
   button.addEventListener("click", () => {
-    restartGame();
     player = button.value;
     computerTurn();
     playerText.textContent = `${player}`;
@@ -29,7 +28,6 @@ choiceBtns.forEach((button) =>
     let computerChoosen = eleccionPlayer(computer);
     computerPicked.src = images[computerChoosen];
     checkWinner();
-    bestOfFive();
   })
 );
 
@@ -53,19 +51,39 @@ function computerTurn() {
 
 function checkWinner() {
   if (player == computer) {
-    alertTie();
+    setTimeout(alertTie, 500);
+    // alertTie();
   } else if (player == "piedra" && computer == "tijera") {
-    alertWinner();
     increaseWinnerPlayer();
+    playerWin();
   } else if (player == "papel" && computer == "piedra") {
-    alertWinner();
+    // alertWinner();
     increaseWinnerPlayer();
+    playerWin();
   } else if (player == "tijera" && computer == "papel") {
-    alertWinner();
     increaseWinnerPlayer();
+    playerWin();
+    // alertWinner();
   } else {
-    alertLoser();
     increaseWinnerComputer();
+    computerWin();
+    // alertLoser();
+  }
+}
+
+function computerWin() {
+  if (computerVictory == 3) {
+    setTimeout(bigLoser, 500);
+  } else {
+    setTimeout(alertLoser, 500);
+  }
+}
+
+function playerWin() {
+  if (countPlayer == 3) {
+    setTimeout(winnerChampion, 500);
+  } else {
+    setTimeout(alertWinner, 500);
   }
 }
 
@@ -159,16 +177,21 @@ function winnerChampion() {
     text: "Felicitaciones ganaste 3 de 5",
     width: 500,
     position: "bottom",
-    // timer: 5000,
     padding: "1em",
-    confirmButtonText: "Continuar",
+  
+    confirmButtonText: "Volver a jugar",
+
     color: "#716add",
     backdrop: `
-    rgba(0,0,123,0.6)
+    rgba(0,0,123,0.7)
       url("assets/Winner.png")
       center
       no-repeat
     `,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      restartGame();
+    }
   });
 }
 
@@ -178,32 +201,30 @@ function bigLoser() {
     text: "Perdiste 3 de 5.",
     width: 500,
     position: "bottom",
-    // timer: 5000,
     padding: "1em",
-    confirmButtonText: "Continuar",
+    
+    confirmButtonText: "Volver a jugar",
     color: "#716add",
     backdrop: `
-    rgba(0,0,123,0.6)
+    rgba(0,0,123,0.7)
       url("assets/computerWIN.png")
       center
       no-repeat
     `,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      restartGame();
+    }
   });
 }
 
 function restartGame() {
-  if (countPlayer == 3 || computerVictory == 3) {
-    countPlayer = 0;
-    computerVictory = 0;
-    counterPlayer.textContent = countPlayer;
-    computerVictories.textContent = computerVictory;
-  }
-}
-
-function bestOfFive() {
-  if (countPlayer == 3) {
-    winnerChampion();
-  } else if (computerVictory == 3) {
-    bigLoser();
-  }
+  countPlayer = 0;
+  computerVictory = 0;
+  counterPlayer.textContent = countPlayer;
+  computerVictories.textContent = computerVictory;
+  playerPicked.src = "assets/guessing.png";
+  computerPicked.src = "assets/guessing-compu.png";
+  playerText.textContent = 'Jugador';
+  computerText.textContent = 'Meshi';
 }
