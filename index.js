@@ -139,6 +139,7 @@ function alertWinner() {
       center
       no-repeat
     `,
+   
   });
 }
 
@@ -158,6 +159,7 @@ function alertLoser() {
     center
     no-repeat
   `,
+  
   });
 }
 function alertTie() {
@@ -206,6 +208,7 @@ function winnerChampion() {
       center
       no-repeat
     `,
+    allowOutsideClick: false,
   }).then((result) => {
     if (result.isConfirmed) {
       restartGame();
@@ -229,11 +232,13 @@ function bigLoser() {
       center
       no-repeat
     `,
+    allowOutsideClick: false,
   }).then((result) => {
     if (result.isConfirmed) {
       restartGame();
     }
   });
+  
 }
 
 function restartGame() {
