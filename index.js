@@ -1,8 +1,9 @@
-function numeroAleatorio(min, max) {
+// Function to generate a random number
+function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// general variables
+// General variables
 
 const playerText = document.querySelector("#playerText");
 const computerText = document.querySelector("#computerText");
@@ -11,14 +12,27 @@ const choiceBtns = document.querySelectorAll(".choiceBtn");
 const counterPlayer = document.querySelector("#counterPlayer");
 const computerVictories = document.querySelector("#computerVictories");
 
+let disabled = false;
 let player;
 let computer;
 let result;
 let countPlayer = 0;
 let computerVictory = 0;
 
+function disabledButtons(choiceBtns){
+  choiceBtns.forEach((b) => {
+    b.disabled = true;
+  });
+}
+function ableButtons(){
+  choiceBtns.forEach((b) => {
+    b.disabled = false;
+  });
+}
+
 choiceBtns.forEach((button) =>
   button.addEventListener("click", () => {
+    disabledButtons(choiceBtns);
     player = button.value;
     computerTurn();
     playerText.textContent = `${player}`;
@@ -27,13 +41,17 @@ choiceBtns.forEach((button) =>
     computerText.textContent = `${computer}`;
     let computerChoosen = eleccionPlayer(computer);
     computerPicked.src = images[computerChoosen];
-    checkWinner();
+    checkWinner(player, computer);
+    setTimeout(ableButtons, 750);
+    
   })
+
 );
 
-// Computer Election
+// Computer choice
+
 function computerTurn() {
-  const randNum = numeroAleatorio(1, 3);
+  const randNum = randomNumber(1, 3);
   switch (randNum) {
     case 1:
       computer = "piedra";
@@ -47,43 +65,43 @@ function computerTurn() {
   }
 }
 
-// Saber quien gana
+// Who wins
 
-function checkWinner() {
+function checkWinner(player, computer) {
   if (player == computer) {
-    setTimeout(alertTie, 500);
+    setTimeout(alertTie, 750);
     // alertTie();
   } else if (player == "piedra" && computer == "tijera") {
     increaseWinnerPlayer();
-    playerWin();
+    playerWin(countPlayer);
   } else if (player == "papel" && computer == "piedra") {
     // alertWinner();
     increaseWinnerPlayer();
-    playerWin();
+    playerWin(countPlayer);
   } else if (player == "tijera" && computer == "papel") {
     increaseWinnerPlayer();
-    playerWin();
+    playerWin(countPlayer);
     // alertWinner();
   } else {
     increaseWinnerComputer();
-    computerWin();
+    computerWin(computerVictory);
     // alertLoser();
   }
 }
 
-function computerWin() {
+function computerWin(computerVictory) {
   if (computerVictory == 3) {
-    setTimeout(bigLoser, 500);
+    setTimeout(bigLoser, 750);
   } else {
-    setTimeout(alertLoser, 500);
+    setTimeout(alertLoser, 750);
   }
 }
 
-function playerWin() {
+function playerWin(countPlayer) {
   if (countPlayer == 3) {
-    setTimeout(winnerChampion, 500);
+    setTimeout(winnerChampion, 750);
   } else {
-    setTimeout(alertWinner, 500);
+    setTimeout(alertWinner, 750);
   }
 }
 
@@ -178,7 +196,7 @@ function winnerChampion() {
     width: 500,
     position: "bottom",
     padding: "1em",
-  
+
     confirmButtonText: "Volver a jugar",
 
     color: "#716add",
@@ -202,7 +220,7 @@ function bigLoser() {
     width: 500,
     position: "bottom",
     padding: "1em",
-    
+
     confirmButtonText: "Volver a jugar",
     color: "#716add",
     backdrop: `
@@ -225,6 +243,6 @@ function restartGame() {
   computerVictories.textContent = computerVictory;
   playerPicked.src = "assets/guessing.png";
   computerPicked.src = "assets/guessing-compu.png";
-  playerText.textContent = 'Jugador';
-  computerText.textContent = 'Meshi';
+  playerText.textContent = "Jugador";
+  computerText.textContent = "Meshi";
 }
