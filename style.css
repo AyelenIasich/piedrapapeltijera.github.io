@@ -111,7 +111,31 @@ h1 {
 
 
 
-.tarjeta:hover{
+.pc-card:hover{
+animation: rotatePC 0.8s ease-in-out both;
+}
+@keyframes rotatePC {
+  0%{
+    transform: rotate(0deg) translate3d(0,0,0) ;
+  }
+  25%{
+    transform: rotate(3deg) translate3d(0,0,0) ;
+  }
+  50%{
+    transform: rotate(-3deg) translate3d(0,0,0) ;
+  }
+  75%{
+    transform: rotate(1deg) translate3d(0,0,0) ;
+  }
+  100%{
+    transform: rotate(6deg) translate3d(0,0,0) ;
+  }
+}
+
+
+
+.player-card:hover{
+  
 animation: rotate 0.8s ease-in-out both;
 }
 @keyframes rotate {
@@ -128,6 +152,6 @@ animation: rotate 0.8s ease-in-out both;
     transform: rotate(1deg) translate3d(0,0,0) ;
   }
   100%{
-    transform: rotate(0deg) translate3d(0,0,0) ;
+    transform: rotate(-6deg) translate3d(0,0,0) ;
   }
 }
