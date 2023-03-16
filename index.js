@@ -1,3 +1,9 @@
+import {
+  alertTie,
+  alertWinner,
+  alertLoser,
+} from "./alerts.js";
+
 // Function to generate a random number
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -7,24 +13,27 @@ function randomNumber(min, max) {
 
 const playerText = document.querySelector("#playerText");
 const computerText = document.querySelector("#computerText");
-const resultText = document.querySelector("#resultText");
 const choiceBtns = document.querySelectorAll(".choiceBtn");
 const counterPlayer = document.querySelector("#counterPlayer");
 const computerVictories = document.querySelector("#computerVictories");
 
-let disabled = false;
 let player;
 let computer;
-let result;
 let countPlayer = 0;
 let computerVictory = 0;
 
-function disabledButtons(choiceBtns){
+let images = [
+  "assets/papelChoose.png",
+  "assets/piedraChoose.png",
+  "assets/tijeraChoose.png",
+];
+
+function disabledButtons(choiceBtns) {
   choiceBtns.forEach((b) => {
     b.disabled = true;
   });
 }
-function ableButtons(){
+function ableButtons() {
   choiceBtns.forEach((b) => {
     b.disabled = false;
   });
@@ -43,10 +52,10 @@ choiceBtns.forEach((button) =>
     computerPicked.src = images[computerChoosen];
     checkWinner(player, computer);
     setTimeout(ableButtons, 750);
-    
   })
-
 );
+
+
 
 // Computer choice
 
@@ -70,22 +79,18 @@ function computerTurn() {
 function checkWinner(player, computer) {
   if (player == computer) {
     setTimeout(alertTie, 750);
-    // alertTie();
   } else if (player == "piedra" && computer == "tijera") {
     increaseWinnerPlayer();
     playerWin(countPlayer);
   } else if (player == "papel" && computer == "piedra") {
-    // alertWinner();
     increaseWinnerPlayer();
     playerWin(countPlayer);
   } else if (player == "tijera" && computer == "papel") {
     increaseWinnerPlayer();
     playerWin(countPlayer);
-    // alertWinner();
   } else {
     increaseWinnerComputer();
     computerWin(computerVictory);
-    // alertLoser();
   }
 }
 
@@ -105,11 +110,7 @@ function playerWin(countPlayer) {
   }
 }
 
-let images = [
-  "assets/papelChoose.png",
-  "assets/piedraChoose.png",
-  "assets/tijeraChoose.png",
-];
+
 
 function eleccionPlayer(player) {
   let resultado;
@@ -123,64 +124,6 @@ function eleccionPlayer(player) {
   return resultado;
 }
 
-function alertWinner() {
-  Swal.fire({
-    title: "GANASTE!!!",
-    text: "Nadie puede contra vos",
-    width: 500,
-    position: "bottom",
-    timer: 5000,
-    padding: "1em",
-    confirmButtonText: "Continuar",
-    color: "#716add",
-    backdrop: `
-      rgba(0,0,123,0.4)
-      url("assets/cat-nyan-cat.gif")
-      center
-      no-repeat
-    `,
-   
-  });
-}
-
-function alertLoser() {
-  Swal.fire({
-    title: "PERDISTE!!!",
-    text: "No eres rival para mi!!!",
-    width: 500,
-    position: "bottom",
-    timer: 5000,
-    padding: "1em",
-    confirmButtonText: "Continuar",
-    color: "#716add",
-    backdrop: `
-    rgba(0,0,123,0.4)
-    url("assets/loser.png")
-    center
-    no-repeat
-  `,
-  
-  });
-}
-function alertTie() {
-  Swal.fire({
-    title: "EMPATE",
-    text: "Se que puedes hacerlo mejor",
-    width: 500,
-    position: "bottom",
-    timer: 5000,
-    padding: "1em",
-    confirmButtonText: "Continuar",
-    color: "#716add",
-    backdrop: `
-      rgba(0,0,123,0.4)
-      url("assets/tie.png")
-      center
-      no-repeat
-    `,
-  });
-}
-
 function increaseWinnerPlayer() {
   countPlayer++;
   counterPlayer.textContent = countPlayer;
@@ -191,32 +134,8 @@ function increaseWinnerComputer() {
   computerVictories.textContent = computerVictory;
 }
 
-function winnerChampion() {
-  Swal.fire({
-    title: "CRACK",
-    text: "Felicitaciones ganaste 3 de 5",
-    width: 500,
-    position: "bottom",
-    padding: "1em",
-
-    confirmButtonText: "Volver a jugar",
-
-    color: "#716add",
-    backdrop: `
-    rgba(0,0,123,0.7)
-      url("assets/Winner.png")
-      center
-      no-repeat
-    `,
-    allowOutsideClick: false,
-  }).then((result) => {
-    if (result.isConfirmed) {
-      restartGame();
-    }
-  });
-}
-
-function bigLoser() {
+// 
+ function bigLoser() {
   Swal.fire({
     title: "LOSER",
     text: "Perdiste 3 de 5.",
@@ -241,7 +160,34 @@ function bigLoser() {
   
 }
 
-function restartGame() {
+
+ function winnerChampion() {
+  Swal.fire({
+    title: "CRACK",
+    text: "Felicitaciones ganaste 3 de 5",
+    width: 500,
+    position: "bottom",
+    padding: "1em",
+
+    confirmButtonText: "Volver a jugar",
+
+    color: "#716add",
+    backdrop: `
+    rgba(0,0,123,0.7)
+      url("assets/Winner.png")
+      center
+      no-repeat
+    `,
+    allowOutsideClick: false,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      restartGame();
+    }
+  });
+}
+
+
+ function restartGame() {
   countPlayer = 0;
   computerVictory = 0;
   counterPlayer.textContent = countPlayer;
@@ -251,3 +197,5 @@ function restartGame() {
   playerText.textContent = "Jugador";
   computerText.textContent = "Meshi";
 }
+
+
